@@ -6,6 +6,7 @@ import routes from "./routes";
 
 const app = express();
 const port = config.get<number>("port") || 1337;
+app.use(express.json());
 
 app.listen(port, async () => {
   logger.info(`Server listening on port ${port}`);
