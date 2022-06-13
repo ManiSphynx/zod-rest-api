@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 import config from "config";
-import { UserModel } from "../interfaces/userModel";
+import { UserModel } from "../interfaces/userModel.interface";
 
 const userSchema = new mongoose.Schema(
   {
@@ -41,6 +41,6 @@ userSchema.methods.comparePassword = async function (
   return await bcrypt.compare(password, user.password).catch((error) => false);
 };
 
-const UserModel = mongoose.model("User", userSchema);
+const UserModel = mongoose.model<UserModel>("User", userSchema);
 
 export default UserModel;
