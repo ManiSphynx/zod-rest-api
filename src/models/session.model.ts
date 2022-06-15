@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { SessionModel } from "../interfaces/sessionModel.interface";
 
 const sessionSchema = new mongoose.Schema(
   {
@@ -11,6 +12,6 @@ const sessionSchema = new mongoose.Schema(
   }
 );
 
-const SessionModel = mongoose.model("Session", sessionSchema);
+const SessionModel = mongoose.model<SessionModel>("Session", sessionSchema);
 
 export default SessionModel;
